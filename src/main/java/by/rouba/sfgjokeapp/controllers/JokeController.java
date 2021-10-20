@@ -13,10 +13,10 @@ public class JokeController {
         this.jokeService = jokeService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping({"/", "", "/index"})
     public String getRandomJoke(Model model) {
-        String joke = jokeService.getJoke();
-        model.addAttribute("joke", joke);
+
+        model.addAttribute("joke", jokeService.getJoke());
 
         return "index";
     }
